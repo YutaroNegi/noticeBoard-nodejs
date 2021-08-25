@@ -5,7 +5,11 @@ const bcrypt = require('bcrypt')
 
 const userController = {
 
-    registerUser: async function (req, res) {
+    registerForm: async function(req, res,){
+        res.render('newUser')
+    },
+
+    registerUser: async function (req, res, next) {
         let selectedUser = await User.findOne({email: req.body.email})
         if (selectedUser) return res.status(400).send("email exists")
 
@@ -17,7 +21,7 @@ const userController = {
 
         try {
             let savedUser = await user.save()
-            res.send(savedUser)
+            next()
         } catch (error) {
             res.status(400).send("error occurred", erro)
         }
