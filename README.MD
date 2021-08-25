@@ -1,6 +1,6 @@
 # README
 
-<p align="center"><img style = " -webkit-filter: invert(100%); filter: invert(100%);" src="./IMG/logo.png" width=20px> To Rose List </p>
+<p align="center">Notice Board</p>
 
 <p align="center"> 
     <a href="#sobre">Sobre</a>
