@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <a class="btn btn-primary" href="/adm/new">new post</a>
+
+    <% for(let i = 0; i < doc.length; i++) {%>
+
+
+            <div class="bg-light card m-auto text-center mb-4 p-4 d-flex flex-column border border-dark" style="width: 40vh;" id="<%=doc[i]._id%>">
+                <form method="POST" action="/adm/delete/?_method=DELETE" >
+                    <h3><%=doc[i].title%></h3>
+                    <p><%=doc[i].desc%></p>
+                    <input name="id" value="<%=doc[i]._id%>" hidden>
+                    <a class="btn btn-primary" href="/adm/edit/<%=doc[i]._id%>">edit</a>
+                    <button class="btn btn-danger" type="submit">delete</button>
+                </form>
+            </div>
+
+    <%}%> 
+    
+</body>
+</html>
